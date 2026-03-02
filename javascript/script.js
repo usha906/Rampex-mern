@@ -227,75 +227,77 @@
 
 // add(10, 20, result);
 
-//Spread operator(...)
+//spread operator(...)
 // var arr=[1,2,3];
-// var arr2=[...arr,4,5,6]
+// var arr2=[...arr,4,5,6];
 // console.log(arr);
 // console.log(arr2);
 
-// destructered operator 
-// var [m1,m2,m3,m4,m5]= [99,98,97,96,89]
+// //Destructuring operator(ES6)
+// var [m1,m2,m3,m4,m5]=[99,89,79,69,90]; //Array
 // console.log(m1);
 // console.log(m2);
 // console.log(m3);
 // console.log(m4);
 // console.log(m5);
 
-// var{name,age,dept,contact} ={
-//     name:"usha",
-//     age:24,
+// var{name,age,dept,contact}={
+//     name:"putti",
+//     age:18,
+//     dept:["DS","CS"],
 //     contact:{
-//         mobile:9823456129,
-//         mail:"pqrst976@gmail.com",
+//         mobile:9876543210,
+//         mail:'vyshnavi26@gmail.com'
 //     }
-
 // }
 // console.log(name);
 // console.log(age);
 // console.log(dept);
 // console.log(contact);
 
-
+//for-in and for-of(loops)
+//for..in
 // var arr=[10,20,30,40];
-// for(let i in arr)
-// {
+// for(let i in arr){
 //     console.log(i,arr[i]);
 // }
-
 // var obj={
-//     name:"usha",
-//     age:24,
-//     isActive:true,
+//     name:"sree",
+//     age:1,
+//     isActive:true
 // }
 // for(let key in obj){
-//     console.log(key,obj[key]);
+//     console.log(key,obj[key])
 // }
-// //for ...of
-var arr=[10,20,30,40];
-for(let val of arr)
-{
-    console.log(val);
-}
-//foreach(ES6)
-arr.forEach((val,index)=>
-{
-    console.log(val,index)
-})
 
-//map 
-var double =arr.map((val)=>(val*2));
-console.log(double);
+//for...of(ES6)
+// var arr=[10,20,30,40];
+// for(let val of arr){
+//     console.log(val);
+// }
+//forEach(ES6)
+// arr.forEach((val,index)=>{
+//     console.log(val,index);
+// })
 
-//filter 
-var even=arr.filter((val)=>(val%2===0));
-console.log(even);
+// var arr=[1,2,3,4,5];
+// //Map
+// var double=arr.map((val)=>(val*2));
+// console.log(double)
 
-//reduce 
-var total=arr.reduce((sum,val)=>(sum+val),0);
-console.log(total)
 
-var result=arr.map((val)=> val**2).filter((val)=>val%2===0).reduce((sum,val)=>(sum+val),0);
-console.log(result)
+// //Filter
+// var even=arr.filter((val)=>(val%2===0));
+// console.log(even);
+
+// //Reducer
+// var total=arr.reduce((sum,val)=>(sum+val),0);
+// console.log(total);
+
+// var result=arr.map((val)=>val**2).filter((val)=>val%2===0).reduce((sum,val)=>(sum+val),0);
+// console.log(result);
+
+
 // //Hoisting
 // //var a;
 // console.log(a);
@@ -336,21 +338,79 @@ console.log(result)
 // console.log(i);
 // console.log(j);
 
-const promise=new Promise((resolve,reject)=>
-{
-    var success=true;
-    if(success)
-    {
-        resolve("Task COmpleted");
-    }
-    else{
-        reject("Task not Completed");
-    }
-})
-promise.then((message)=>{
-    console.log(message);
+//promise(ES6)
+// const promise=new Promise((resolve,reject)=>{
+//     var success=true;
+//     if(success){
+//         resolve("Task Completed");
+//     }
+//     else{
+//         reject("Not completed");
+//     }
+// })
+// promise.then((message)=>{
+//     console.log(message);
+// }).catch((err)=>{
+//     console.log(err);
+// })
 
-}).catch((err)=>
+//setTimeout
+// const promise=new Promise((resolve,reject)=>{
+//     var success=true;
+//     if(success){
+//         setTimeout(()=>{
+//             if(success){
+//         resolve("Task Completed");
+//     }
+//     else{
+//        reject("Not completed");
+//   }
+//             resolve("Task Completed");
+
+//         },5000);
+        
+//     }
+//     else{
+//         reject("Not completed");
+//     }
+// })
+// promise.then((message)=>{
+//     console.log(message);
+// }).catch((err)=>{
+//     console.log(err);
+// })
+//set Interval
+// var count=1
+// const IntervalCount=setInterval(()=>
+// {
+//     console.log(count);
+//     count++;
+//     if(count>5)
+//     {
+//         clearInterval(IntervalCount)
+//     }
+// },2000)
+//fetch user data
+// const getData=()=>{
+//     return fetch("https://jsonplaceholder.typicode.com/users")
+// }
+// getData().then((res)=>res.json())
+// .then((data)=>console.log(data))
+// .catch((err)=>console.log(err));
+
+
+
+//async and await
+const getData=async()=>
 {
-   console.log(err); 
-})
+    try{
+        const res=await fetch("https://jsonplaceholder.typicode.com/users")
+        const data=await res.json();
+        console.log(data);
+        
+    }catch(err)
+    {
+        console.log(err)
+    }
+}
+getData();
