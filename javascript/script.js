@@ -329,9 +329,28 @@ console.log(result)
 // console.log(b);
 
 //const
-const i=10; //Global scope
-if(true){
-    const j=20; //Block scope
-}
-console.log(i);
-console.log(j);
+// const i=10; //Global scope
+// if(true){
+//     const j=20; //Block scope
+// }
+// console.log(i);
+// console.log(j);
+
+const promise=new Promise((resolve,reject)=>
+{
+    var success=true;
+    if(success)
+    {
+        resolve("Task COmpleted");
+    }
+    else{
+        reject("Task not Completed");
+    }
+})
+promise.then((message)=>{
+    console.log(message);
+
+}).catch((err)=>
+{
+   console.log(err); 
+})
